@@ -1,0 +1,70 @@
+{
+  "root": "apps/cydemo",
+  "sourceRoot": "apps/cydemo/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/cydemo",
+        "index": "apps/cydemo/src/index.html",
+        "baseHref": "/",
+        "main": "apps/cydemo/src/main.tsx",
+        "polyfills": "apps/cydemo/src/polyfills.ts",
+        "tsConfig": "apps/cydemo/tsconfig.app.json",
+        "assets": ["apps/cydemo/src/favicon.ico", "apps/cydemo/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/cydemo/src/environments/environment.ts",
+              "with": "apps/cydemo/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "cydemo:build",
+        "hmr": true,
+        "proxyConfig": "apps/cydemo/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "cydemo:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cydemo/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/cydemo"],
+      "options": {
+        "jestConfig": "apps/cydemo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

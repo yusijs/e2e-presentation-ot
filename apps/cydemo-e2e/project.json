@@ -1,0 +1,28 @@
+{
+  "root": "apps/cydemo-e2e",
+  "sourceRoot": "apps/cydemo-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/cydemo-e2e/cypress.json",
+        "devServerTarget": "cydemo:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "cydemo:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cydemo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["cydemo"]
+}
