@@ -1,4 +1,18 @@
+# Running
 
+### Apps / Presentation
+* Run all in parallel with `npm run serve:all`
+* Presentation can be ran with `npm run serve:presentation` [link](http://localhost:8080)
+* Express API can be ran with `npm run serve:api` [link](http://localhost:3333)
+* React App can be ran with `npm run serve:cydemo` [link](http://localhost:4200)
+
+### Tests
+
+(tests requires api to be ran with `npm run serve:api` first, can be automated with nx custom commands)
+
+* Run tests without serve (serve is done beforehand) `npm run e2e`
+* Run tests with dev-server `npm run e2e:serve`
+* Run tests with dev-server in watch mode `npm run e2e:watch`
 
 # CyDemo
 

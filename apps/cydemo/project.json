@@ -47,6 +47,11 @@
         "production": {
           "buildTarget": "cydemo:build:production",
           "hmr": false
+        },
+        "e2e": {
+          "buildTarget": "cydemo:build",
+          "hmr": false,
+          "proxyConfig": "apps/cydemo/proxy-e2e.conf.json"
         }
       }
     },
@@ -63,6 +68,28 @@
       "options": {
         "jestConfig": "apps/cydemo/jest.config.js",
         "passWithNoTests": true
+      }
+    },
+    "presenter": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "cwd": "tools/spectacle",
+        "commands": [
+          "npm start"
+        ]
+      }
+    },
+    "serve-all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "commands": [
+          "nx run cydemo:serve",
+          "nx run api:serve",
+          "nx run cydemo:presenter"
+        ],
+        "parallel": true
       }
     }
   },

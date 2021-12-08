@@ -12,6 +12,9 @@
       "configurations": {
         "production": {
           "devServerTarget": "cydemo:serve:production"
+        },
+        "docker": {
+          "devServerTarget": "cydemo:serve:e2e"
         }
       }
     },

@@ -5,7 +5,14 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "serve:all": "nx run cydemo:serve-all",
+    "serve:api": "nx run api:serve",
+    "serve:cydemo": "nx run cydemo:serve",
+    "serve:presentation": "nx run cydemo:presenter",
+    "e2e": "nx run cydemo-e2e:e2e --baseUrl=http://localhost:4200 --skipServe",
+    "e2e:serve": "nx run cydemo-e2e:e2e:docker",
+    "e2e:watch": "nx run cydemo-e2e:e2e --watch"
   },
   "private": true,
   "dependencies": {
